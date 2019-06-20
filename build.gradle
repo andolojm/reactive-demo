@@ -22,6 +22,7 @@ dependencies {
 		exclude group: 'junit', module: 'junit'
 	}
 	testImplementation 'io.projectreactor:reactor-test'
+  testCompile "org.mockito:mockito-core:1.+"
 }
 
 test {

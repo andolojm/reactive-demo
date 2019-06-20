@@ -16,7 +16,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class Router {
 
   @Bean
-  RouterFunction<ServerResponse> routes(Handler handler) {
+  public RouterFunction<ServerResponse> routes(Handler handler) {
     return route(POST("/submit"), handler::process)
       .andRoute(POST("/submit/internal"), handler::processInternalPost);
   }
