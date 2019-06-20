@@ -17,7 +17,6 @@ public class Router {
 
   @Bean
   public RouterFunction<ServerResponse> routes(Handler handler) {
-    return route(POST("/submit"), handler::process)
-      .andRoute(POST("/submit/internal"), handler::processInternalPost);
+    return route(POST("/submit"), handler::process);
   }
 }

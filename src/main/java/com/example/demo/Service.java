@@ -15,15 +15,24 @@ import reactor.core.publisher.Mono;
 public class Service {
 
   private WebClient client = WebClient.builder()
-    .baseUrl("http://localhost:8080")
+    .baseUrl("http://localhost:3000")
     .build();
 
   public Mono<String> call(String input) {
     return client.post()
-      .uri("/submit/internal")
+      .uri("/post")
       .accept(MediaType.APPLICATION_JSON)
       .body(BodyInserters.fromObject(input))
       .retrieve()
       .bodyToMono(String.class);
   }
+
+  public Mono<String> poll(String input) {
+    return client.get()
+      .uri("/get")
+      .accept(MediaType.APPLICATION_JSON)
+      .retrieve()
+      .bodyToMono(String.class);
+  }
+
 }
