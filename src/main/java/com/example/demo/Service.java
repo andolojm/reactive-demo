@@ -34,5 +34,4 @@ public class Service {
       .retrieve()
       .bodyToMono(String.class);
   }
-
 }
